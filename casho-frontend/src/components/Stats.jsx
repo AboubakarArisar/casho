@@ -1,37 +1,31 @@
-import React from "react";
-
 const Stats = () => {
-  const statItems = [
-    { label: "Active Users", value: "50,000+" },
-    { label: "Interest Rate", value: "0%" },
-    { label: "Regulated Platform", value: "SEC" },
-  ];
-
   return (
-    <section className="border-y border-border-dark bg-surface-dark/30 py-16">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section className="py-12 border-y border-white/5 bg-white/[0.02]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
-          {statItems.map((item, index) => (
-            <div
-              key={index}
-              className={`flex flex-col items-center text-center sm:items-start sm:text-left ${
-                index !== 0
-                  ? "sm:border-l sm:border-border-dark sm:pl-16"
-                  : ""
-              }`}
-            >
-              <span className="text-5xl font-black text-white tracking-tight">
-                {item.value}
-              </span>
+          <div className="text-center md:text-left">
+            <p className="text-slate-500 text-sm font-medium uppercase tracking-widest mb-1">
+              Active Users
+            </p>
+            <p className="text-4xl font-black text-white">50,000+</p>
+          </div>
 
-              <span className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-primary/60">
-                {item.label}
-              </span>
-            </div>
-          ))}
+          <div className="text-center md:text-left border-y md:border-y-0 md:border-x border-white/10 py-8 md:py-0 md:px-12">
+            <p className="text-slate-500 text-sm font-medium uppercase tracking-widest mb-1">
+              Interest Rate
+            </p>
+            <p className="text-4xl font-black text-primary">0%</p>
+          </div>
+
+          <div className="text-center md:text-left md:pl-12">
+            <p className="text-slate-500 text-sm font-medium uppercase tracking-widest mb-1">
+              Regulation
+            </p>
+            <p className="text-4xl font-black text-white">SEC Regulated</p>
+          </div>
+
         </div>
-
       </div>
     </section>
   );
