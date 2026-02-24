@@ -1,4 +1,5 @@
 import { Wallet, Globe, Rss, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -43,10 +44,10 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">Company</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li><a className="hover:text-green-500 transition" href="#">About Us</a></li>
-              <li><a className="hover:text-green-500 transition" href="#">Careers</a></li>
-              <li><a className="hover:text-green-500 transition" href="#">Contact</a></li>
-              <li><a className="hover:text-green-500 transition" href="#">Blog</a></li>
+              <li><Link to="/about" className="hover:text-green-500 transition">About Us</Link></li>
+              <li><Link className="hover:text-green-500 transition" to="/careers">Careers</Link></li>
+              <li><Link className="hover:text-green-500 transition" to="/contact">Contact</Link></li>
+              <li><Link className="hover:text-green-500 transition" to="/blog">Blog</Link></li>
             </ul>
           </div>
 

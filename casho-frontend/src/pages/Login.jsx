@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -153,12 +154,12 @@ export default function Login() {
             <div className="bg-gray-800 p-6 text-center rounded-b-xl">
                 <p className="text-sm text-gray-400">
                     Don't have an account?{" "}
-                    <a
-                      href="#"
+                    <Link
+                      to="/signup"
                       className="text-green-500 font-semibold hover:text-green-400 transition-colors"
                     >
                       Sign Up
-                    </a>
+                    </Link>
                 </p>
             </div>
         </div>
