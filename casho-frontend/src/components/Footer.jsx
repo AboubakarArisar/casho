@@ -1,165 +1,85 @@
-import React from "react";
+import { Wallet, Globe, Rss, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const sections = [
-    {
-      title: "Product",
-      links: ["Features", "Security", "Mobile App", "Pricing"],
-    },
-    {
-      title: "Company",
-      links: ["About Us", "Careers", "Press", "Contact"],
-    },
-    {
-      title: "Legal",
-      links: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
-    },
-  ];
-
   return (
-    <footer className="relative bg-slate-950 pt-28 pb-12 border-t border-white/5">
+    <footer className="bg-gray-900 pt-20 pb-10 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute bottom-0 left-1/3 h-96 w-96 bg-indigo-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/3 h-96 w-96 bg-purple-500/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-
-        {/* Top Grid */}
-        <div className="grid grid-cols-1 gap-16 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+        {/* Top Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
 
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2">
+            <div className="flex items-center gap-2 mb-6">
 
-            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-green-500 text-white p-2 rounded-lg flex items-center justify-center">
+                <Wallet className="w-5 h-5" />
+              </div>
 
-              <h2 className="text-2xl font-extrabold text-white">
-                Bachat
-              </h2>
+              <span className="text-xl font-black tracking-tight text-white">
+                Casho
+              </span>
 
             </div>
 
-            <p className="max-w-sm text-slate-400 leading-relaxed text-sm">
-              Empowering communities to save smarter and grow wealth together
-              through transparent, digital-first financial circles.
+            <p className="text-gray-400 text-sm max-w-xs leading-relaxed">
+              Redefining how communities save and invest. Secure, transparent,
+              and interest-free committees for everyone.
             </p>
-
-            {/* Social Links */}
-            <div className="mt-8 flex gap-4">
-
-              {["facebook", "twitter", "linkedin", "instagram"].map((platform) => (
-                <a
-                  key={platform}
-                  href="#"
-                  className="text-slate-400 hover:text-indigo-400 transition-colors"
-                >
-                  <span className="material-symbols-outlined text-lg">
-                    {platform === "facebook" && "facebook"}
-                    {platform === "twitter" && "twitter"}
-                    {platform === "linkedin" && "linkedin"}
-                    {platform === "instagram" && "instagram"}
-                  </span>
-                  
-                </a>
-              ))}
-
-            </div>
-
           </div>
 
-          {/* Navigation Sections */}
-          {sections.map((section) => (
-            <div key={section.title}>
+          {/* Product */}
+          <div>
+            <h4 className="text-white font-bold mb-6">Product</h4>
+            <ul className="space-y-4 text-sm text-gray-400">
+              <li><a className="hover:text-green-500 transition" href="#">Features</a></li>
+              <li><a className="hover:text-green-500 transition" href="#">Security</a></li>
+              <li><a className="hover:text-green-500 transition" href="#">Business</a></li>
+              <li><a className="hover:text-green-500 transition" href="#">Roadmap</a></li>
+            </ul>
+          </div>
 
-              <h4
-                className="
-                  mb-6 text-xs font-semibold uppercase tracking-widest
-                  text-slate-300
-                "
-              >
-                {section.title}
-              </h4>
+          {/* Company */}
+          <div>
+            <h4 className="text-white font-bold mb-6">Company</h4>
+            <ul className="space-y-4 text-sm text-gray-400">
+              <li><Link to="/about" className="hover:text-green-500 transition">About Us</Link></li>
+              <li><Link className="hover:text-green-500 transition" to="/careers">Careers</Link></li>
+              <li><Link className="hover:text-green-500 transition" to="/contact">Contact</Link></li>
+              <li><Link className="hover:text-green-500 transition" to="/blog">Blog</Link></li>
+            </ul>
+          </div>
 
-              <ul className="space-y-4 text-sm">
-
-                {section.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="
-                        text-slate-400
-                        hover:text-indigo-400
-                        transition-colors
-                      "
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-
-              </ul>
-
-            </div>
-          ))}
+          {/* Legal */}
+          <div>
+            <h4 className="text-white font-bold mb-6">Legal</h4>
+            <ul className="space-y-4 text-sm text-gray-400">
+              <li><a className="hover:text-green-500 transition" href="#">Privacy Policy</a></li>
+              <li><a className="hover:text-green-500 transition" href="#">Terms of Service</a></li>
+              <li><a className="hover:text-green-500 transition" href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div
-          className="
-            mt-24 pt-8 border-t border-white/5
+        {/* Bottom Section */}
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
 
-            flex flex-col gap-6
-            items-center justify-between
-            md:flex-row
-          "
-        >
-
-          <p className="text-xs text-slate-500 font-medium text-center md:text-left">
-            © 2026 Bachat Fintech Solutions. All rights reserved.
+          <p className="text-gray-500 text-xs">
+            © 2024 Casho Financial Technologies Inc. All rights reserved.
           </p>
 
-          {/* Trust Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-6">
-
-            <span
-              className="
-                flex items-center gap-2 text-[11px] font-semibold
-                uppercase tracking-widest text-slate-500
-              "
-            >
-              <span className="material-symbols-outlined text-sm text-indigo-400">
-                verified
-              </span>
-              Verified Secure
-            </span>
-
-            <span
-              className="
-                flex items-center gap-2 text-[11px] font-semibold
-                uppercase tracking-widest text-slate-500
-              "
-            >
-              <span className="material-symbols-outlined text-sm text-indigo-400">
-                cloud_done
-              </span>
-              Cloud Hosted
-            </span>
-
-            <span
-              className="
-                flex items-center gap-2 text-[11px] font-semibold
-                uppercase tracking-widest text-slate-500
-              "
-            >
-              <span className="material-symbols-outlined text-sm text-indigo-400">
-                lock
-              </span>
-              Data Encrypted
-            </span>
-
+          <div className="flex gap-6">
+            <a className="text-gray-500 hover:text-green-500 transition" href="#">
+              <Globe className="w-5 h-5" />
+            </a>
+            <a className="text-gray-500 hover:text-green-500 transition" href="#">
+              <Rss className="w-5 h-5" />
+            </a>
+            <a className="text-gray-500 hover:text-green-500 transition" href="#">
+              <Mail className="w-5 h-5" />
+            </a>
           </div>
 
         </div>

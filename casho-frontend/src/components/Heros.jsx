@@ -1,55 +1,122 @@
-import React from "react";
+import { LineChart, ChevronRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="hero-gradient relative flex flex-col items-center justify-center px-6 pt-24 pb-32 text-center lg:pt-40 lg:pb-48 overflow-hidden">
-      
-      {/* Texture Overlay */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none"></div>
-      
-      {/* Animated Glow Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/20 blur-[120px] rounded-full pointer-events-none opacity-30"></div>
+    <section className="bg-gray-950 pt-32 pb-24 px-4">
 
-      <div className="relative z-10 mx-auto max-w-4xl">
+      <div className="max-w-7xl mx-auto text-center">
 
         {/* Badge */}
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-          
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-          </span>
+        <div className="inline-flex items-center gap-2 px-4 py-1 mb-6
+                        rounded-full bg-green-500/10 border border-green-500/20">
 
-          Next Gen Community Savings
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+
+          <span className="text-xs font-semibold text-green-400 uppercase">
+            Trusted by 50k+ Users
+          </span>
         </div>
 
-        {/* Main Title */}
-        <h1 className="text-5xl font-black leading-[1.1] tracking-tight text-white sm:text-7xl lg:text-8xl">
+
+        {/* Heading */}
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
+
           Save Together,
-          <br />
-          <span className="text-primary inline-block">Grow Together</span>
+          <span className="text-green-400"> Grow Together</span>
+
         </h1>
 
+
         {/* Description */}
-        <p className="mx-auto mt-10 max-w-2xl text-lg text-slate-400 sm:text-xl leading-relaxed">
-          The digital community savings platform for modern financial freedom.
-          Join thousands of circles and reach your goals faster with trusted members.
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+
+          Digital community savings platform with full transparency,
+          zero interest, and strong security.
+
         </p>
 
-        {/* Buttons */}
-        <div className="mt-14 flex flex-col items-center justify-center gap-5 sm:flex-row">
 
-          <button className="flex h-14 min-w-[220px] items-center justify-center rounded-xl bg-primary px-8 text-base font-bold text-background-dark hover:scale-105 transition-all shadow-2xl shadow-primary/30 active:scale-95">
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+
+          {/* Primary Button */}
+          <button
+            className="px-8 py-4 bg-green-500 text-gray-900 rounded-xl
+                       font-semibold text-lg flex items-center justify-center gap-2
+                       hover:bg-green-400 transition shadow-lg"
+          >
             Start Committee
+            <ChevronRight className="w-5 h-5" />
           </button>
 
-          <button className="flex h-14 min-w-[220px] items-center justify-center rounded-xl border border-border-dark bg-surface-dark px-8 text-base font-bold text-white hover:bg-surface-dark/80 transition-all hover:border-primary/30 active:scale-95">
+
+          {/* Secondary Button */}
+          <button
+            className="px-8 py-4 bg-gray-800 text-white rounded-xl
+                       font-semibold text-lg border border-gray-700
+                       hover:bg-gray-700 transition"
+          >
             View Demo
           </button>
 
         </div>
 
+
+        {/* Demo Card */}
+        <div className="mt-16 max-w-5xl mx-auto">
+
+          <div className="bg-gray-900 border border-gray-800
+                          rounded-2xl shadow-2xl overflow-hidden">
+
+
+            {/* Header */}
+            <div className="flex gap-2 px-4 py-3 border-b border-gray-800 bg-gray-800/50">
+
+              <span className="w-3 h-3 bg-red-500/40 rounded-full"></span>
+              <span className="w-3 h-3 bg-yellow-500/40 rounded-full"></span>
+              <span className="w-3 h-3 bg-green-500/40 rounded-full"></span>
+
+            </div>
+
+
+            {/* Content */}
+            <div className="p-8 flex justify-center">
+
+              <div className="max-w-md w-full space-y-4">
+
+                <div className="h-8 bg-gray-800 rounded-lg w-3/4"></div>
+
+
+                <div className="h-32 bg-green-500/10 border border-green-500/20
+                                rounded-xl flex flex-col items-center justify-center gap-2">
+
+                  <LineChart className="text-green-400 w-10 h-10" />
+
+                  <span className="text-green-400/70 text-xs font-mono">
+                    LIVE ANALYTICS
+                  </span>
+
+                </div>
+
+
+                <div className="grid grid-cols-3 gap-4">
+
+                  <div className="h-20 bg-gray-800 rounded-lg"></div>
+                  <div className="h-20 bg-gray-800 rounded-lg"></div>
+                  <div className="h-20 bg-gray-800 rounded-lg"></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
   );
 };

@@ -1,93 +1,82 @@
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Wallet, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
-          ? "bg-slate-900/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-transparent py-6"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur border-b border-gray-800 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
 
-        {/* Logo */}
-        <div className="flex items-center gap-3 group cursor-pointer">
-
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl 
-            bg-gradient-to-br from-indigo-500 to-purple-600
-            text-white shadow-xl transition-transform group-hover:scale-105">
-
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <div className="bg-green-500 text-white p-2 rounded-lg">
+              <Wallet className="w-6 h-6" />
+            </div>
+            <Link to="/" className="text-2xl font-bold text-white tracking-tight">
+              Casho
+            </Link>
           </div>
 
-          <h2 className="text-2xl font-extrabold tracking-tight text-white">
-            Bachat
-          </h2>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            <Link to="/features" className="text-gray-300 text-sm font-medium hover:text-green-500 transition">
+              Features
+            </Link>
+            <Link to="/security" className="text-gray-300 text-sm font-medium hover:text-green-500 transition">
+              Security
+            </Link>
+            <Link to="/how-it-works" className="text-gray-300 text-sm font-medium hover:text-green-500 transition">
+              How it Works
+            </Link>
+          </div>
 
-        </div>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
-
-          {["Features", "How it Works", "About"].map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-sm font-medium text-slate-300
-              hover:text-indigo-400 transition-colors relative group"
+          {/* Buttons */}
+          <div className="flex items-center gap-4">
+            {/* Login */}
+            <Link
+              to="/login"
+              className="hidden sm:block text-gray-300 text-sm font-semibold hover:text-green-500 transition"
             >
-              {link}
+              Login
+            </Link>
 
-              {/* Underline animation */}
-              <span
-                className="absolute left-0 -bottom-1 h-[2px] w-0 bg-indigo-500
-                transition-all duration-300 group-hover:w-full"
-              ></span>
-            </a>
-          ))}
+            {/* Get Started */}
+            <Link
+              to="/login"
+              className="px-6 py-2.5 bg-green-500 text-white rounded-xl text-sm font-bold hover:bg-green-600 transition shadow-md shadow-green-500/30"
+            >
+              Get Started
+            </Link>
 
-        </nav>
-
-        {/* CTA Buttons */}
-        <div className="flex items-center gap-6">
-
-          {/* Login */}
-          <button
-            className="hidden sm:block text-sm font-semibold text-slate-300
-            hover:text-indigo-400 transition"
-          >
-            Login
-          </button>
-
-          {/* Get Started */}
-          <button
-            className="flex h-11 items-center justify-center rounded-xl
-            bg-gradient-to-r from-indigo-500 to-purple-600
-            px-6 text-sm font-bold text-white
-            hover:opacity-90 transition-all
-            shadow-xl shadow-indigo-500/25
-            active:scale-95"
-          >
-            Get Started
-          </button>
-
+            {/* Mobile Toggle */}
+            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-200">
+              {isOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
       </div>
-    </header>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-gray-900 border-t border-gray-800 px-4 py-4 space-y-4 shadow-lg">
+          <Link to="/features" className="block text-gray-300 text-sm font-medium hover:text-green-500 transition">
+            Features
+          </Link>
+          <Link to="/security" className="block text-gray-300 text-sm font-medium hover:text-green-500 transition">
+            Security
+          </Link>
+          <Link to="/how-it-works" className="block text-gray-300 text-sm font-medium hover:text-green-500 transition">
+            How it Works
+          </Link>
+          <Link to="/login" className="block w-full text-left text-gray-300 text-sm font-semibold hover:text-green-500 transition">
+            Login
+          </Link>
+        </div>
+      )}
+    </nav>
   );
 };
 
